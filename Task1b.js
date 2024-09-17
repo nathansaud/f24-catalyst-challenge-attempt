@@ -1,6 +1,5 @@
 // How do I run this script? 
-// node Task1b.js    
-
+// node Task1b.js   
 todoList = []; 
 /**
  * YOUR OBJECTIVE: 
@@ -17,12 +16,26 @@ todoList = [];
  * the "// YOUR CODE HERE" comments.
  */
 
-function __todo(todoString) {
-    // YOUR CODE HERE
-}
+function AddItemstodo(todoString) {
+    const prompt = require('prompt-sync')();
+    let new_listItem = "";
 
-function __todo() {
-    // YOUR CODE HERE
+    
+    while (new_listItem !== "I am done") {
+        new_listItem = prompt('What task would you like to add? Type "I am done" to quit: ');
+
+      
+        if (new_listItem !== "I am done") {
+            todoList.push((todoList.length + 1) + ". " + new_listItem);
+        }
+    }
+}
+function Printtodo() {
+    console.log("-------TO DO LIST-------");
+    for(let i = 0; i < todoList.length; i++) {
+        console.log(todoList[i]);
+    }
+    console.log("------------------------");
 }
 
 /**
@@ -30,10 +43,12 @@ function __todo() {
  * it's rare for us to write procedures in JS, but for learning purposes
  * we do it here
  */
+
 function mainTask1b() {
     // YOUR CODE HERE (simply call the functions you implemented above)
+    AddItemstodo("");
+    Printtodo();
 }
-
 // This bit of code ensures that a main method exists! If it doesn't, then it throws an error
 if (require.main === module) {
     // unlike other languages like Java, there is no built in main method. We use a funciton called

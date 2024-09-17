@@ -21,7 +21,7 @@
     <title>Todo List App</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             margin: 20px;
         }
         #todo-list {
@@ -32,8 +32,8 @@
         .todo-item {
             padding: 10px;
             margin: 5px 0;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
+            background-color: #358cd8;
+            border: 1px solid #000000;
             display: flex;
             justify-content: space-between;
         }
@@ -64,7 +64,12 @@
             // Add non-empty string todos to the todo list
             // YOUR CODE HERE 
 
-            // reset the input value after add todo is clicked.
+            if (createdTodo) {
+                addTodo(createdTodo);
+                refreshTodoList();
+            }
+
+            // Reset the input value after adding the todo
             todoInput.value = '';
         });
         
@@ -90,13 +95,16 @@
 
         function deleteTodo(index) {
             // YOUR CODE HERE (recycle your work from former tasks)
-            refreshTodoList()
+            todoList.splice(index, 1);
+            refreshTodoList();
         }
 
         function addTodo(todo) {
             // YOUR CODE HERE (recycle your work from former tasks)
-            refreshTodoList()
-        }
+            todoList.push(todo);
+            refreshTodoList();
+    }
+    
     </script>
 </body>
 </html>
